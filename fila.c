@@ -35,7 +35,7 @@ struct fila_t *fila_destroi(struct fila_t *f)
 int fila_insere(struct fila_t *f, void *item)
 {
 
-    if (!f || !item)
+    if (!f || f->num == 0 || !item)
         return -1;
 
     struct fila_nodo_t *aux = f->prim;
@@ -92,6 +92,7 @@ void *fila_retira(struct fila_t *f)
         free(f->prim);
         return item;
     }
+    return NULL;
 }
 
 // Informa o número de itens na fila.

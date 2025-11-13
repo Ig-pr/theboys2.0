@@ -1,3 +1,8 @@
+#ifndef ENTIDADES
+#define ENTIDADES
+
+#include "fila.h"
+#include "conjunto.h"
 #include "definicoes.h"
 
 struct heroi
@@ -6,7 +11,7 @@ struct heroi
     int xp_h;
     int pac;
     int vel;
-    int hab;
+    struct cjto_t *hab;
     int bas;
     int status;
 };
@@ -65,3 +70,29 @@ struct evento
     int inf_3;
     int inf_4;
 };
+
+int random(int min, int max);
+
+
+
+struct heroi *cria_heroi();
+
+void ini_heroi(int i, struct heroi *h);
+
+struct base *cria_base();
+
+struct base *ini_base(int i, struct base *b);
+
+struct missao *cria_missao();
+
+struct missao *ini_missao(int i, struct missao *m);
+
+struct mundo *cria_mundo();
+
+void ini_mundo(struct mundo *w);
+
+void destroi_evento(struct evento *evento);
+
+void destroi_mundo(struct mundo *w);
+
+#endif
